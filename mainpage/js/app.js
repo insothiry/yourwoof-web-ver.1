@@ -31,6 +31,7 @@ $(document).ready(function(){
    $('.btn-interest').click(function(){
       alert('yes')
    })
+
 });
 
 // showmore

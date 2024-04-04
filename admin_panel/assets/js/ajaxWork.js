@@ -98,6 +98,11 @@ function addItems(){
     var category=$('#category').val();
     var upload=$('#upload').val();
     var file=$('#file')[0].files[0];
+    
+    var age= $('#p_age').val();
+    var breed= $('#p_breed').val();
+    var gender= $('#p_gender').val();
+    var status= $('#p_status').val();
 
     var fd = new FormData();
     fd.append('p_name', p_name);
@@ -106,6 +111,12 @@ function addItems(){
     fd.append('category', category);
     fd.append('file', file);
     fd.append('upload', upload);
+    
+    fd.append('p_age', age);
+    fd.append('p_breed', breed);
+    fd.append('p_gender', gender);
+    fd.append('p_status', status);
+
     $.ajax({
         url:"./controller/addItemController.php",
         method:"post",
@@ -141,6 +152,12 @@ function updateItems(){
     var category = $('#category').val();
     var existingImage = $('#existingImage').val();
     var newImage = $('#newImage')[0].files[0];
+    
+    var age= $('#p_age').val();
+    var breed= $('#p_breed').val();
+    var gender= $('#p_gender').val();
+    var status= $('#p_status').val();
+
     var fd = new FormData();
     fd.append('product_id', product_id);
     fd.append('p_name', p_name);
@@ -149,6 +166,11 @@ function updateItems(){
     fd.append('category', category);
     fd.append('existingImage', existingImage);
     fd.append('newImage', newImage);
+
+    fd.append('p_age', age);
+    fd.append('p_breed', breed);
+    fd.append('p_gender', gender);
+    fd.append('p_status', status);
    
     $.ajax({
       url:'./controller/updateItemController.php',
@@ -356,3 +378,28 @@ function addToWish(id){
         }
     });
 }
+
+// function payment(){
+//     var email=$('#email').val();
+//     var fullname=$('#fullname').val();
+//     var phone_number=$('#phone_number').val();
+//     var home_address=$('#home_address').val();
+
+//     var fd = new FormData();
+//     fd.append('email', email);
+//     fd.append('fullname', fullname);
+//     fd.append('phone_number', phone_number);
+//     fd.append('home_address', home_address);
+//     $.ajax({
+//         url:"./paymentController.php",
+//         method:"post",
+//         data:fd,
+//         processData: false,
+//         contentType: false,
+//         success: function(data){
+//             alert('Product Added successfully.');
+//             $('form').trigger('reset');
+//             showProductItems();
+//         }
+//     });
+// }

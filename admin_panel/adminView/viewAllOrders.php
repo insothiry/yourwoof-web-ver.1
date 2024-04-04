@@ -3,19 +3,19 @@
   <table class="table table-striped">
     <thead>
       <tr>
-        <th>O.N.</th>
-        <th>Pet Name</th>
-        <th>Contact</th>
-        <th>OrderDate</th>
-        <th>Payment Method</th>
+        <th>NO</th>
+        <th>Pet ID</th>
+        <th>Fullname</th>
+        <th>Phone number</th>
+        <th>Email</th>
+        <th>Address</th>
+        <th>Delivery Type</th>
         <th>Order Status</th>
-        <th>Payment Status</th>
-        <th>More Details</th>
      </tr>
     </thead>
      <?php
       include_once "../config/dbconnect.php";
-      $sql="SELECT * from orders";
+      $sql="SELECT * from pet_order";
       $result=$conn-> query($sql);
       
       if ($result-> num_rows > 0){
@@ -23,36 +23,17 @@
     ?>
        <tr>
           <td><?=$row["order_id"]?></td>
-          <td><?=$row["delivered_to"]?></td>
-          <td><?=$row["phone_no"]?></td>
-          <td><?=$row["order_date"]?></td>
-          <td><?=$row["pay_method"]?></td>
-           <?php 
-                if($row["order_status"]==0){
-                            
-            ?>
-                <td><button class="btn btn-danger" onclick="ChangeOrderStatus('<?=$row['order_id']?>')">Pending </button></td>
-            <?php
-                        
-                }else{
-            ?>
-                <td><button class="btn btn-success" onclick="ChangeOrderStatus('<?=$row['order_id']?>')">Delivered</button></td>
         
-            <?php
-            }
-                if($row["pay_status"]==0){
-            ?>
-                <td><button class="btn btn-danger"  onclick="ChangePay('<?=$row['order_id']?>')">Unpaid</button></td>
-            <?php
-                        
-            }else if($row["pay_status"]==1){
-            ?>
-                <td><button class="btn btn-success" onclick="ChangePay('<?=$row['order_id']?>')">Paid </button></td>
-            <?php
-                }
-            ?>
+          <td><?=$row["pet_id"]?></td>
+          <td><?=$row["fullname"]?></td>
+          <td><?=$row["phone_number"]?></td>
+          <td><?=$row["email"]?></td>
+          <td><?=$row["home_address"]?></td>
+          <td><?=$row["delivery_type"]?></td>
+          <td>Pending...</td>
+        
               
-        <td><a class="btn btn-primary openPopup" data-href="./adminView/viewEachOrder.php?orderID=<?=$row['order_id']?>" href="javascript:void(0);">View</a></td>
+        <!-- <td><a class="btn btn-primary openPopup" data-href="./adminView/viewEachOrder.php?orderID=<?=$row['order_id']?>" href="javascript:void(0);">View</a></td> -->
         </tr>
     <?php
             

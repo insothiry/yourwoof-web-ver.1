@@ -20,6 +20,11 @@
       <input type="text" class="form-control" id="p_name" value="<?=$row1['product_name']?>">
     </div>
     <div class="form-group">
+      <label for="age">Pet Age:</label>
+      <input  type="text" class="form-control" id="p_age" value="<?=$row1['age']?>">
+    </div>
+  
+    <div class="form-group">
       <label for="desc">Pet Description:</label>
       <input type="text" class="form-control" id="p_desc" value="<?=$row1['product_desc']?>">
     </div>
@@ -46,6 +51,18 @@
           }
         ?>
       </select>
+    </div>
+    <div class="form-group">
+      <label for ="breed">Pet Breed:</label>
+      <input type="text" class="form-control" id="p_breed" value="<?=$row1['breed']?>">
+    </div>
+    <div class="form-group">
+      <label for= "gender">Gender:</label>
+      <input type="text" class="form-control" id="p_gender" value="<?=$row1['gender']?>">
+    </div>
+    <div class="form-group">
+      <label for="status">Status:</label>
+      <input type="text" class="form-control" id="p_status" value="<?=$row1['pet_status']?>">
     </div>
       <div class="form-group">
          <img width='200px' height='150px' src='<?=$row1["product_image"]?>'>
